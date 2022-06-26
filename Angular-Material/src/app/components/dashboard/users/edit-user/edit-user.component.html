@@ -1,0 +1,46 @@
+<div class="container">
+  <mat-toolbar>
+    <span>Create User</span>
+  </mat-toolbar>
+  <mat-card style="margin-top: 15px;">
+<form [formGroup]="form" (ngSubmit)="saveUser()">
+    <mat-grid-list cols="4" rowHeight="70">
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field class="ancho">
+          <mat-label>Username</mat-label>
+          <input matInput autocomplete="off" formControlName="username">
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="3" [rowspan]="5">
+        <img src="./assets/img/user.png" alt="" width="250px" height="250px">
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field class="ancho">
+          <mat-label>First Name</mat-label>
+          <input matInput autocomplete="off" formControlName="firstName">
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field class="ancho">
+          <mat-label>Last Name</mat-label>
+          <input matInput autocomplete="off" formControlName="lastName">
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1" >
+        <mat-form-field class="ancho">
+          <mat-label>Select Gender</mat-label>
+          <mat-select formControlName="gender">
+            <mat-option *ngFor="let item of gender" [value]="item">
+              {{item}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <button mat-raised-button color="primary" [disabled]="form.invalid" type="submit">Save</button>
+        <button mat-raised-button color="warn" routerLink="/dashboard" style="margin-left: 5px;">Cancel</button>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>
+  </mat-card>
+</div>
